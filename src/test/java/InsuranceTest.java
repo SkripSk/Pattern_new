@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class InsuranceTest extends BaseTest{
 
@@ -30,6 +31,7 @@ public class InsuranceTest extends BaseTest{
         testData.put("Дата рождения", "12121992");
         testData.put("Телефон", "9101234567");
         testData.put("Электронная почта", "sdfsf@test.com");
+        testData.put("Проверочный код", String.valueOf(new Random().nextInt(5)));
 
         fillField(driver.findElement(By.xpath("//*[text()='Фамилия']/parent::div/input")), testData.get("Фамилия"));
         fillField(driver.findElement(By.xpath("//*[text()='Имя']/parent::div/input")), testData.get("Имя"));
@@ -39,7 +41,12 @@ public class InsuranceTest extends BaseTest{
         fillField(driver.findElement(By.xpath("//*[text()='Номер телефона'][@class='form-block__text form-label']/parent::div/input")), testData.get("Телефон"));
         fillField(driver.findElement(By.xpath("//*[text()='Электронная почта']/parent::div/input")), testData.get("Электронная почта"));
 
+        click(driver.findElement(By.xpath("//a[@class='link-times disclaimer-title']/../../span")));
 
+        fillField(driver.findElement(By.xpath("//*[text()='Проверочный код']/parent::div/input")), testData.get("Проверочный код"));
+
+        Assert.assertTrue("Кнопка \"Отпрвить\" не активна",
+                driver.findElement(By.xpath("//button[contains(text(),' Отправить')]")).isEnabled());
 
 
     }
@@ -54,4 +61,6 @@ public class InsuranceTest extends BaseTest{
     public void acceptRegion() {
         click(getDriver().findElement(By.xpath("//*[text()='Да']")));
     }
+
+
 }
