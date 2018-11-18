@@ -4,12 +4,13 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import annotation.FieldName;
 import util.DriverManager;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
-import annotation.FieldName;
+
 
 public class InsurancePage extends BasePageObject {
 

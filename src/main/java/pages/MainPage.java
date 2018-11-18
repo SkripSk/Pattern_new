@@ -10,9 +10,7 @@ public class MainPage extends BasePageObject {
     @FindBy(xpath = "//ul[@class='main-menu']//li")
     public List<WebElement> mainMenu;
 
-
-
-    @FindBy(xpath = "//a[contains(@class,'menu-section-link')][@href]")
+    @FindBy(xpath = "//a[contains(@class,'menu-description__header')][@href]")
     public List<WebElement> subMenu;
 
     @FindBy(xpath = "//*[text()='Да']")
